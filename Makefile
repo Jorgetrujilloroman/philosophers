@@ -8,6 +8,7 @@ INCLUDE 	:= -I ./include
 SRC_DIR 	:= src
 SRC			:=	main.c \
 				check.c \
+				utils.c \
 				
 
 OBJ_DIR 	:= obj

@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/06 14:10:15 by jotrujil         ###   ########.fr       */
+/*   Created: 2025/02/06 11:04:19 by jotrujil          #+#    #+#             */
+/*   Updated: 2025/02/06 13:31:27 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
+#include "../include/philo.h"
 
-# define PHILO_H
-
-# include <stdio.h>
-# include <limits.h>
-
-typedef struct s_table
+int	philo_atoi(char *str)
 {
-	long	philo_id;
-}	t_table;
+	int			i;
+	long long	nbr;
 
-/* CHECKS */
-
-// Check if all args are valid. Return 1 if not
-int	args_check(int ac, char **av);
-// Converts a positive str to int
-int	philo_atoi(char *str);
-
-#endif
+	i = 0;
+	nbr = 0;
+	while (str[i] == ' ')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nbr = nbr * 10 + (str[i] - '0');
+		i++;
+	}
+	if (nbr > INT_MAX)
+		return (-1);
+	else
+		return ((int)nbr);
+}

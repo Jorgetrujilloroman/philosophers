@@ -9,6 +9,7 @@ SRC_DIR 	:= src
 SRC			:=	main.c \
 				check.c \
 				utils.c \
+				table.check	\
 				
 
 OBJ_DIR 	:= obj

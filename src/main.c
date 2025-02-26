@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:45:26 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/06 14:16:59 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:47:36 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	main(int argc, char **argv)
 {
-	t_table	*table;
+	t_table			table;
+	t_philo			philos[MAX_PHILOS];
+	pthread_mutex_t	forks[MAX_PHILOS];
 
 	if (args_check(argc, argv))
 		return (1);
-	table = serve_table(table);
+	serve_table(&table, philos);
 	return (0);
 }

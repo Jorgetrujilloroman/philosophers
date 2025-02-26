@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 	if (args_check(argc, argv))
 		return (1);
 	serve_table(&table, philos);
+	init_forks_mx(forks, argv[1]);
 	return (0);
 }

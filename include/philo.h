@@ -23,15 +23,26 @@
 
 typedef struct s_philo
 {
+	int				id;
+	int				is_eating;
+	int				times_eaten;
+	int				total_philos;
+	int				must_eat_x_times;
+	int				*any_dead;
+	size_t			start_time;
+	size_t			last_eat_time;
+	size_t			time_to_eat;
+	size_t			time_to_sleep
+	size_t			time_to_die;
 	pthread_t		thread;
 }	t_philo;
 
 typedef struct s_table
 {
 	int				dead_flag;
-	pthread_mutex_t	dead_lock;
-	pthread_mutex_t	dinner_lock;
-	pthread_mutex_t	write_lock;
+	pthread_mutex_t	dead_mutex;
+	pthread_mutex_t	dinner_mutex;
+	pthread_mutex_t	write_mutex;
 	t_philo			*philos;
 }	t_table;
 
@@ -42,7 +53,9 @@ int		args_check(int ac, char **av);
 int		philo_atoi(char *str);
 
 /* INIT */
-// "Serves" the table: Init the flag, philos and initialice the mutexes
+// "Serves" the table: Init the flag, philos and some of the mutexes
 t_table	*serve_table(t_table *table, t_philo *philos);
+// Initialize all the forks mutexes
+void	init_forks_mx(pthread_mutex_t *forks, int n_philos)
 
 #endif

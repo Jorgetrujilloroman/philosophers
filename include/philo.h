@@ -6,7 +6,7 @@
 /*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/27 22:02:59 by jorge            ###   ########.fr       */
+/*   Updated: 2025/02/27 22:08:07 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,13 @@ typedef struct s_table
 /* CHECKS */
 // Check if all args are valid. Return 1 if not
 int		args_check(int ac, char **av);
+
+
+/* UTILS */
 // Converts a positive str to int
 int		philo_atoi(char *str);
+// Gets the current system time in milliseconds. Return 0 if fail.
+size_t	get_current_time(void)
 
 /* INIT */
 // "Serves" the table: Init the flag, philos and some of the mutexes

@@ -22,5 +22,6 @@ int	main(int argc, char **argv)
 		return (1);
 	serve_table(&table, philos);
 	init_forks_mx(forks, argv[1]);
+	init_philos(philos, &table, forks, argv);
 	return (0);
 }

@@ -62,5 +62,8 @@ int		philo_atoi(char *str);
 t_table	*serve_table(t_table *table, t_philo *philos);
 // Initialize all the forks mutexes
 void	init_forks_mx(pthread_mutex_t *forks, int n_philos)
+// Initialize all philosophers & assign their forks
+void	init_philos(t_philo *philos, t_table *table,
+	pthread_mutex_t *forks, char **argv)
 
 #endif

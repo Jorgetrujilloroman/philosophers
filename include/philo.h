@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/26 17:08:27 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:02:59 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <limits.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 # ifndef MAX_PHILOS
 #  define MAX_PHILOS 420

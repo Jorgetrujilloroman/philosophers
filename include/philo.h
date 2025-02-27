@@ -35,13 +35,18 @@ typedef struct s_philo
 	size_t			time_to_sleep
 	size_t			time_to_die;
 	pthread_t		thread;
+	pthread_mutex_t	*l_fork;
+	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	*dead_mutex;
+	pthread_mutex_t	food_mutex;
+	pthread_mutex_t	*write_mutex;
 }	t_philo;
 
 typedef struct s_table
 {
 	int				dead_flag;
 	pthread_mutex_t	dead_mutex;
-	pthread_mutex_t	dinner_mutex;
+	pthread_mutex_t	food_mutex;
 	pthread_mutex_t	write_mutex;
 	t_philo			*philos;
 }	t_table;

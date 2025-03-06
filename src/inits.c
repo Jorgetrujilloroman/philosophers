@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                            :+:      :+:    :+:   */
+/*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:10:30 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/26 17:12:14 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:44:21 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	init_philos(t_philo *philos, t_table *table,
 		philos[i].id = i + 1;
 		philos[i].is_eating = 0;
 		philos[i].times_eaten = 0;
-		philos[i].total_philos = philo_atoi(philos_number);
+		philos[i].total_philos = philo_atoi(argv[1]);
 		if (argv[5])
 			philos[i].must_eat_x_times = philo_atoi(argv[5]);
 		else
 			philos[i].must_eat_x_times = -1;
 		philos[i].any_dead = &table->dead_flag;
-		philos[i].start_time = get_current_time(); //todo
+		philos[i].start_time = get_current_time();
 		philos[i].last_eat_time = get_current_time();
 		philos[i].time_to_eat = philo_atoi(argv[3]);
 		philos[i].time_to_sleep = philo_atoi(argv[4]);

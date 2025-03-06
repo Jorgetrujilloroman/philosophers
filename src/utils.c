@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:04:19 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/27 22:06:34 by jorge            ###   ########.fr       */
+/*   Updated: 2025/03/06 11:36:55 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ size_t	get_current_time(void)
 		return (0);
 	}
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
-	
 }
 
 int	philo_atoi(char *str)

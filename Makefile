@@ -10,6 +10,8 @@ SRC			:=	main.c \
 				check.c \
 				utils.c \
 				inits.c	\
+				threads.c \
+				monitor.c \
 				
 
 OBJ_DIR 	:= obj

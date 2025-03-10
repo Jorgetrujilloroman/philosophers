@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/06 13:46:44 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/10 13:56:47 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ typedef struct s_philo
 {
 	int				id;
 	int				is_eating;
-	int				times_eaten;
+	int				dishes_eaten;
 	int				total_philos;
 	int				must_eat_x_times;
-	int				*any_dead;
+	int				*dead_or_end;
 	size_t			start_time;
 	size_t			last_eat_time;
 	size_t			time_to_eat;
@@ -57,7 +57,6 @@ typedef struct s_table
 // Check if all args are valid. Return 1 if not
 int		args_check(int ac, char **av);
 
-
 /* UTILS */
 
 // Converts a positive str to int
@@ -82,4 +81,10 @@ void	create_all_threads(t_table *table, pthread_mutex_t *forks);
 // Destroy all the mutexes & forks. Prints a message if first parameter exists.
 void	destroy_all_mutexes(char *msg, t_table *table, pthread_mutex_t *forks);
 
+/* MONITOR */
+
+// Check if every philo has eaten the specified n of times. Returns 0 if not.
+int		has_everyone_eaten(t_philo *philos);
+// Check if any philo has dead and writes the philo ID if it has.
+int		has_anyone_dead(t_philo	*philos);
 #endif

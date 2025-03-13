@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/10 13:56:47 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:07:43 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int		args_check(int ac, char **av);
 int		philo_atoi(char *str);
 // Gets the current system time in milliseconds. Return 0 if fail.
 size_t	get_current_time(void);
+// Locks the write mutex and prints the time, philo id and a custom message.
+void	lock_and_print(t_philo *philo, char *msg);
+// Checks if a philo dead or end flag is up. 
+int		dead_checker(t_philo *philo);
 
 /* INIT */
 
@@ -85,6 +89,6 @@ void	destroy_all_mutexes(char *msg, t_table *table, pthread_mutex_t *forks);
 
 // Check if every philo has eaten the specified n of times. Returns 0 if not.
 int		has_everyone_eaten(t_philo *philos);
-// Check if any philo has dead and writes the philo ID if it has.
+// Check if any philo has dead and writes the time and philo ID if it has.
 int		has_anyone_dead(t_philo	*philos);
 #endif

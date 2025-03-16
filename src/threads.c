@@ -6,11 +6,29 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 21:51:19 by jorge             #+#    #+#             */
-/*   Updated: 2025/03/10 13:50:29 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:07:29 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+/* Runs each philosopher thread. Loop eating, sleepint and thinking, 
+until it is detected that some philosopher has died. */
+static void	*philo_routine(void *philo_arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)philo_arg;
+	if (philo->id % 2 == 0)
+		usleep(1000);
+	while (!dead_checker(philo))
+	{
+		eat(philo);
+		deep_think(philo);
+		take_nap(philo);
+	}
+	return (philo_arg);
+}
 
 /* Monitors the status of philos & terminates when any philo is dead 
 or if every philo has eaten if this parameter has been specified*/

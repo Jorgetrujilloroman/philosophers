@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/13 11:07:43 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/16 20:46:46 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <unistd.h>
 
 # ifndef MAX_PHILOS
 #  define MAX_PHILOS 420

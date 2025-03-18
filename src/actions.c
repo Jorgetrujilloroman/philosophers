@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 21:07:59 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/18 15:18:59 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:20:24 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	deep_think(t_philo *philo)
 
 void	eat(t_philo *philo)
 {
+	if (dead_checker(philo))
+		return ;
 	pthread_mutex_lock(philo->r_fork);
 	lock_and_print(philo, "took the right fork 🍴");
 	if (philo->total_philos == 1)

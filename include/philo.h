@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:37 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/18 14:57:22 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:04:31 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int		improved_usleep(size_t millis);
 
 /* INIT */
 
-// "Serves" the table: Init the flag, philos and some of the mutexes
-t_table	*serve_table(t_table *table, t_philo *philos);
+// "Serves" the table: Init the dead flag, philos and some of the mutexes
+void	serve_table(t_table *table, t_philo *philos);
 // Initialize all the forks mutexes
 void	init_forks_mx(pthread_mutex_t *forks, int n_philos);
 // Initialize all philosophers & assign their forks
@@ -94,4 +94,15 @@ void	destroy_all_mutexes(char *msg, t_table *table, pthread_mutex_t *forks);
 int		has_everyone_eaten(t_philo *philos);
 // Check if any philo has dead and writes the time and philo ID if it has.
 int		has_anyone_dead(t_philo	*philos);
+
+/* Actions */
+
+/* Take the fork, lock the mutexes and eat. Then unlock forks and mutexes.
+The case with only 1 philosopher is also contemplated, waiting until he dies. */
+void	eat(t_philo *philo);
+/* A philosopher is thinking. Just prints a message*/
+void	deep_think(t_philo *philo);
+/* A philosopher is sleeping. Prints a message and simulate sleep time.*/
+void	take_nap(t_philo *philo);
+
 #endif

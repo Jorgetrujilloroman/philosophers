@@ -12,6 +12,7 @@ SRC			:=	main.c \
 				inits.c	\
 				threads.c \
 				monitor.c \
+				actions.c
 				
 
 OBJ_DIR 	:= obj

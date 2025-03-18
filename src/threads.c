@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 21:51:19 by jorge             #+#    #+#             */
-/*   Updated: 2025/03/18 14:55:59 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:05:13 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	create_all_threads(t_table *table, pthread_mutex_t *forks)
 	i = 0;
 	while (i < table->philos[i].total_philos)
 	{
-		if (pthread_join(&table->philos[i].thread, NULL) != 0)
+		if (pthread_join(table->philos[i].thread, NULL) != 0)
 			destroy_all_mutexes("Error joining philo thread", table, forks);
 		i++;
 	}

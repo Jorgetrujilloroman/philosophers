@@ -6,27 +6,23 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 21:07:59 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/18 14:58:03 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:04:41 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-/* A philosopher is sleeping. Prints a message and simulate sleep time.*/
 void	take_nap(t_philo *philo)
 {
 	lock_and_print(philo, "is taking a nap: zZz");
 	improved_usleep(philo->time_to_sleep);
 }
 
-/* A philosopher is thinking. Just prints a message*/
 void	deep_think(t_philo *philo)
 {
 	lock_and_print(philo, "is philosophizing about deep issues");
 }
 
-/* Take the fork, lock the mutexes and eat. Then unlock forks and mutexes.
-The case with only 1 philosopher is also contemplated, waiting until he dies. */
 void	eat(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);

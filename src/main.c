@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:45:26 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/06 12:18:59 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:00:29 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	if (args_check(argc, argv))
 		return (1);
 	serve_table(&table, philos);
-	init_forks_mx(forks, argv[1]);
+	init_forks_mx(forks, philo_atoi(argv[1]));
 	init_philos(philos, &table, forks, argv);
 	create_all_threads(&table, forks);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:10:30 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/10 13:44:44 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:02:28 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_philos(t_philo *philos, t_table *table,
 	int	i;
 
 	i = 0;
-	while (i < argv[1])
+	while (i < philo_atoi(argv[1]))
 	{
 		philos[i].id = i + 1;
 		philos[i].is_eating = 0;
@@ -66,7 +66,7 @@ void	init_forks_mx(pthread_mutex_t *forks, int total_philos)
 	}
 }
 
-t_table	*serve_table(t_table *table, t_philo *philos)
+void	serve_table(t_table *table, t_philo *philos)
 {
 	table->dead_flag = 0;
 	table->philos = philos;

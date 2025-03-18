@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:57:09 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/16 20:46:52 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:21:28 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	has_anyone_dead(t_philo	*philos)
 		if (current_time - philos[i].last_eat_time >= philos[i].time_to_die)
 		{
 			pthread_mutex_unlock(philos[i].food_mutex);
-			lock_and_print(&philos[i], "has died");
+			lock_and_print(&philos[i],
+				"has died 😋\n🚔 👮: The restaurant is closed 🔒");
 			pthread_mutex_lock(philos[0].dead_mutex);
 			*philos->dead_or_end = 1;
 			pthread_mutex_unlock(philos[0].dead_mutex);

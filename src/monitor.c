@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:57:09 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/18 18:19:02 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 19:00:24 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	has_anyone_dead(t_philo	*philos)
 		if (current_time - philos[i].last_eat_time >= philos[i].time_to_die)
 		{
 			pthread_mutex_unlock(philos[i].food_mutex);
-			lock_and_print(&philos[i],
-				"has died 💀⚰️\n🚔 👮: The restaurant is closed 🔒");
+			lock_and_print(&philos[i], "has died 💀⚰️");
 			pthread_mutex_lock(philos[0].dead_mutex);
 			*philos->dead_or_end = 1;
 			pthread_mutex_unlock(philos[0].dead_mutex);
+			printf("\nPolice is coming to investigate the cause... 🚔👮\n");
 			return (1);
 		}
 		pthread_mutex_unlock(philos[i].food_mutex);
@@ -59,6 +59,7 @@ int	has_everyone_eaten(t_philo *philos)
 	{
 		pthread_mutex_lock(philos[0].dead_mutex);
 		*philos->dead_or_end = 1;
+		printf("\nEvery philosopher has eaten!! 🥳🥂🎉\n");
 		pthread_mutex_unlock(philos[0].dead_mutex);
 		return (1);
 	}

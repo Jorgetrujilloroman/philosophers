@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:36:14 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/02/06 13:38:32 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 18:40:37 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ static int	philo_check(char *n_philos)
 	else if (philo_atoi(n_philos) <= 0 && philo_atoi(n_philos) != -1)
 	{
 		printf("At least one philosopher is needed\n");
+		return (1);
+	}
+	else if (philo_atoi(n_philos) > MAX_PHILOS)
+	{
+		printf("We don't have space for %d philosophers.\n",
+			philo_atoi(n_philos));
+		printf("The restaurant capacity is %d philosophers.\n",
+			MAX_PHILOS);
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 21:51:19 by jorge             #+#    #+#             */
-/*   Updated: 2025/03/18 18:53:36 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 19:18:08 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	*philo_routine(void *philo_arg)
 	while (!dead_checker(philo))
 	{
 		eat(philo);
-		deep_think(philo);
 		take_nap(philo);
+		deep_think(philo);
 	}
 	return (philo_arg);
 }

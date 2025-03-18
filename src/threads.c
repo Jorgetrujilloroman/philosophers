@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 21:51:19 by jorge             #+#    #+#             */
-/*   Updated: 2025/03/16 21:07:29 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:55:59 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	*philo_routine(void *philo_arg)
 
 	philo = (t_philo *)philo_arg;
 	if (philo->id % 2 == 0)
-		usleep(1000);
+		improved_usleep(1);
 	while (!dead_checker(philo))
 	{
 		eat(philo);

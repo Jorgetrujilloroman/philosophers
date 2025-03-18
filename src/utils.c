@@ -6,11 +6,21 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:04:19 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/13 11:07:33 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:56:56 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+int	improved_usleep(size_t millis)
+{
+	size_t	start;
+
+	start = get_current_time();
+	while ((get_current_time() - start) < millis)
+		usleep(500);
+	return (0);
+}
 
 int	dead_checker(t_philo *philo)
 {

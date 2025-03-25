@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:04:19 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/18 15:13:20 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/25 20:24:45 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void	lock_and_print(t_philo *philo, char *msg)
 	size_t	time;
 
 	pthread_mutex_lock(philo->write_mutex);
-	time = get_current_time() - philo->start_time;
 	if (!dead_checker(philo))
+	{
+		time = get_current_time() - philo->start_time;
 		printf("%zu ms: Philo number %d %s\n", time, philo->id, msg);
+	}
 	pthread_mutex_unlock(philo->write_mutex);
 }
 

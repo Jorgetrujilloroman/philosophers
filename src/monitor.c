@@ -6,12 +6,14 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:57:09 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/31 19:41:00 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:44:01 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+/* This function prints a message when a philosopher dies.
+It is needed to avoid the dead checker of the lock_and_print function*/
 static void	dead_message(t_philo *philo)
 {
 	size_t	time;

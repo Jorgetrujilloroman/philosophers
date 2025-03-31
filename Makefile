@@ -34,6 +34,7 @@ $(NAME): $(OBJ) | $(BIN_DIR)
 	@echo "Compiling $(YELLOW)$(PROJECT)$(RESET) with $(BLUE)$(CFLAGS)$(RESET)..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)Done! ✅$(RESET)"
+	@echo "You can execute the program by running $(YELLOW)./bin/philo $(RESET)"
 	@echo "$(RED)------------------------------$(RESET)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c

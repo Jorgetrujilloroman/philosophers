@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:57:09 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/31 19:44:01 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:58:40 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /* This function prints a message when a philosopher dies.
 It is needed to avoid the dead checker of the lock_and_print function*/
-static void	dead_message(t_philo *philo)
+static void	dead_message(t_philo *philo, size_t current_time)
 {
 	size_t	time;
 
 	pthread_mutex_lock(philo->write_mutex);
-	time = get_current_time() - philo->start_time;
+	time = current_time - philo->start_time;
 	printf("\n%zu ms: Philo number %d has died 💀⚰️\n", time, philo->id);
 	printf("Police is coming to investigate the cause... 🚔👮\n");
 	pthread_mutex_unlock(philo->write_mutex);
@@ -41,7 +41,7 @@ int	has_anyone_dead(t_philo	*philos)
 			pthread_mutex_lock(philos[0].dead_mutex);
 			*philos->dead_or_end = 1;
 			pthread_mutex_unlock(philos[0].dead_mutex);
-			dead_message(&philos[i]);
+			dead_message(&philos[i], current_time);
 			return (1);
 		}
 		pthread_mutex_unlock(philos[i].food_mutex);

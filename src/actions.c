@@ -6,7 +6,7 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 21:07:59 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/18 17:20:24 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:19:24 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 void	take_nap(t_philo *philo)
 {
+	if (dead_checker(philo))
+		return ;
 	lock_and_print(philo, "is taking a nap 😴💤");
 	improved_usleep(philo->time_to_sleep);
 }
 
 void	deep_think(t_philo *philo)
 {
+	if (dead_checker(philo))
+		return ;
 	lock_and_print(philo, "is philosophizing about deep issues 💭");
 }
 

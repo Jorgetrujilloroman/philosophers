@@ -6,11 +6,22 @@
 /*   By: jotrujil <jotrujil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:57:09 by jotrujil          #+#    #+#             */
-/*   Updated: 2025/03/25 20:23:15 by jotrujil         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:41:00 by jotrujil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+static void	dead_message(t_philo *philo)
+{
+	size_t	time;
+
+	pthread_mutex_lock(philo->write_mutex);
+	time = get_current_time() - philo->start_time;
+	printf("\n%zu ms: Philo number %d has died 💀⚰️\n", time, philo->id);
+	printf("Police is coming to investigate the cause... 🚔👮\n");
+	pthread_mutex_unlock(philo->write_mutex);
+}
 
 int	has_anyone_dead(t_philo	*philos)
 {
@@ -25,11 +36,10 @@ int	has_anyone_dead(t_philo	*philos)
 		if (current_time - philos[i].last_eat_time >= philos[i].time_to_die)
 		{
 			pthread_mutex_unlock(philos[i].food_mutex);
-			lock_and_print(&philos[i], "has died 💀⚰️\n \
-				\nPolice is coming to investigate the cause... 🚔👮");
 			pthread_mutex_lock(philos[0].dead_mutex);
 			*philos->dead_or_end = 1;
 			pthread_mutex_unlock(philos[0].dead_mutex);
+			dead_message(&philos[i]);
 			return (1);
 		}
 		pthread_mutex_unlock(philos[i].food_mutex);
